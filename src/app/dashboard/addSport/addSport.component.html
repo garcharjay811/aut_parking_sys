@@ -1,0 +1,28 @@
+<mat-card>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<form [formGroup]="form" (submit)="onAddSport()" *ngIf="!isLoading">
+    <mat-form-field>
+    <input matInput type="text" formControlName="sport_name" placeholder="Name of the Sport">
+    <!-- <mat-error *ngIf="form.get('name').invalid">Please enter name of the Sport.</mat-error> -->
+    </mat-form-field>
+    
+    <mat-form-field>
+    <input matInput type="text" formControlName="sport_type" placeholder="Individual/Team">
+    <!-- <mat-error *ngIf="form.get('typeSport').invalid">Please enter type of the Sport.</mat-error> -->
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Add Sport</button>
+</form>
+</mat-card>
+      
+<!-- 
+    <div style="width: 100%;" formArrayName="institutesControl" *ngFor="let item of form.get('institutesControl').controls; let i=index;">"
+    <div [formGroupName]="i">
+      <div> Institute # {{ i+1 }} </div>
+          <mat-form-field>
+            <textarea matInput type="text" formControlName="type" placeholder="Name of the Institute"></textarea>
+            <mat-error *ngIf="form.get('description').invalid">Individual/Team</mat-error>
+          </mat-form-field>
+      <button style="margin-left: 40px;" mat-raised-button type="button" (click)="removeInstitute(i)"></button>Remove Institute</button>
+    </div>
+    </div>
+    <button mat-raised-button type="button" (click)="addInstitute()">Add Institute</button> -->

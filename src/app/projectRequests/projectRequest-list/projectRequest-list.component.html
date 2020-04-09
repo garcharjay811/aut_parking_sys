@@ -1,0 +1,19 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="!isLoading">
+  <mat-expansion-panel *ngFor="let projectRequest of projectRequests">
+    <mat-expansion-panel-header>
+      {{ projectRequest.title }}
+    </mat-expansion-panel-header>
+    <div class="projectRequest-image">
+      <img [src]="projectRequest.image" [alt]="projectRequest.title">
+    </div>
+    <p>{{ projectRequest.description }}</p>
+    <mat-action-row *ngIf="userIsAuthenticated && userId === projectRequest.customer_id">
+      <a mat-button color="primary" [routerLink]="['/edit', projectRequest.id]">EDIT</a>
+      <!-- <button mat-button color="warn" (click)="onDelete(projectRequest.id)">DELETE</button> -->
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<!-- <mat-paginator (page)="onChangedPage($event)"
+  *ngIf="projectRequests.length > 0"></mat-paginator> -->
+<!-- <p class="info-text mat-body-1" *ngIf="projectRequests.length <= 0 && !isLoading">No projectRequests added yet!</p> -->

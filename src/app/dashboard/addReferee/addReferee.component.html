@@ -1,0 +1,48 @@
+<mat-card>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<form [formGroup]="form" (submit)="onAddReferee()" *ngIf="!isLoading">
+    <mat-form-field>
+    <input matInput type="text" formControlName="referee_name" placeholder="Referee Name">
+    <!-- <mat-error *ngIf="form.get('name').invalid">Please enter name of the Referee.</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Referee Sport</mat-label>
+      <mat-select formControlName="sport_name">
+        <mat-option *ngFor="let sport of allSports" [value]="sport.sport_name">
+          {{ sport.sport_name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+    <input matInput type="number" formControlName="phone" placeholder="Phone Number">
+    <!-- <mat-error *ngIf="form.get('phone').invalid">Please enter Phone number of the Referee.</mat-error> -->
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Add Referee</button>
+</form>
+</mat-card>
+
+<!-- 
+<mat-card>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <form [formGroup]="form" (submit)="onAssign()" *ngIf="!isLoading">
+          <div style="width: 100%;" formArrayName="developerControl" *ngFor="let item of form.get('developerControl').controls; let i = index;">
+           
+           <div [formGroupName]="i">
+            <mat-form-field style="width: 40%;">
+              <mat-label translate>Developer Details</mat-label>
+              <mat-select formControlName="developer" matNativeControl required>
+                  <mat-option *ngFor="let developer of developers" value="{{ developer.id }}">{{ developer.firstName }} {{  developer.lastName }} ({{ developer.email }})</mat-option>
+              </mat-select>
+            </mat-form-field>
+      
+            <button style="margin-left: 40px;" mat-raised-button type="button" (click)="removeDeveloper(i)">Remove developer</button>
+          </div>
+          </div>
+          <button mat-raised-button type="button" (click)="addDeveloper()">Add developer</button>      
+          <br>
+          <br>
+          <button mat-raised-button color="accent" type="submit">Assign Developers</button>
+        </form>
+      </mat-card> -->

@@ -1,0 +1,21 @@
+<mat-card>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <form [formGroup]="form" (submit)="onAddInstitute()" *ngIf="!isLoading">
+            <mat-form-field>
+            <input matInput type="text" formControlName="group_name" placeholder="Name of Group">
+            <!-- <mat-error *ngIf="form.get('inst_name').invalid">Please enter name of the Institute.</mat-error> -->
+            </mat-form-field>
+            
+            <mat-form-field>
+            <input matInput type="text" formControlName="sport_name" placeholder="Sport Name">
+            <!-- <mat-error *ngIf="form.get('address').invalid">Please enter address of the Institute.</mat-error> -->
+            </mat-form-field>
+        
+            <mat-form-field>
+            <input matInput type="text" formControlName="group_winner" placeholder="Group Winner">
+            <!-- <mat-error *ngIf="form.get('so_name').invalid">Please enter name of the Sports Officer.</mat-error> -->
+            </mat-form-field>
+        
+            <button mat-raised-button color="accent" type="submit">Add Group</button>
+        </form>
+</mat-card>

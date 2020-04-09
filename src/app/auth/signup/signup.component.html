@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <span *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput type="text" [formControl]="firstControl" placeholder="First Name">
+      <mat-error *ngIf="firstControl.invalid">Please enter a valid first name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [formControl]="lastControl" placeholder="Last Name">
+      <mat-error *ngIf="lastControl.invalid">Please enter a last name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" [formControl]="contactControl" placeholder="Contact Number">
+      <mat-error *ngIf="contactControl.invalid">Please enter a valid contact number.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="email" placeholder="E-Mail" [formControl]="emailControl">
+      <mat-error *ngIf="emailControl.invalid">Please enter a valid email.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" [formControl]="passwordControl">
+      <mat-error *ngIf="passwordControl.invalid">Please enter a valid password.</mat-error>
+    </mat-form-field>
+    <button (click)="onSignup()" mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Signup</button>
+  </span>
+</mat-card>

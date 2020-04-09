@@ -1,0 +1,37 @@
+<mat-card>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+        <form [formGroup]="form" (submit)="onAddInstitute()" *ngIf="!isLoading">
+            <mat-form-field>
+            <input matInput type="text" formControlName="institute1" placeholder="Name of Institute ( A )">
+            <!-- <mat-error *ngIf="form.get('inst_name').invalid">Please enter name of the Institute.</mat-error> -->
+            </mat-form-field>
+            
+            <mat-form-field>
+            <input matInput type="text" formControlName="institute2"" placeholder="Name of Institute ( B )">
+            <!-- <mat-error *ngIf="form.get('address').invalid">Please enter address of the Institute.</mat-error> -->
+            </mat-form-field>
+        
+            <mat-form-field>
+            <input matInput type="text" formControlName="sport_name" placeholder="Name of the Sport">
+            <!-- <mat-error *ngIf="form.get('so_name').invalid">Please enter name of the Sports Officer.</mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" formControlName="group_name" placeholder="Name of the Group">
+                <!-- <mat-error *ngIf="form.get('so_name').invalid">Please enter name of the Sports Officer.</mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" formControlName="venue_name" placeholder="Name of the Venue">
+                <!-- <mat-error *ngIf="form.get('so_name').invalid">Please enter name of the Sports Officer.</mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        
+            <button mat-raised-button color="accent" type="submit">Add Institute</button>
+        </form>
+</mat-card>

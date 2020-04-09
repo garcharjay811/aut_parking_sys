@@ -1,0 +1,44 @@
+<mat-card>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<form [formGroup]="form" (submit)="onAddParticipant()" *ngIf="!isLoading">
+    <mat-form-field>
+    <input matInput type="text" formControlName="roll_id" placeholder="Participant Roll ID">
+    <!-- <mat-error *ngIf="form.get('name').invalid">Please enter Roll ID of the Participant.</mat-error> -->
+    </mat-form-field>
+    
+    <mat-form-field>
+    <input matInput type="text" formControlName="name" placeholder="Participant Name">
+    <!-- <mat-error *ngIf="form.get('address').invalid">Please enter name of the Participant.</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Institute Name</mat-label>
+        <mat-select formControlName="inst_name">
+          <mat-option *ngFor="let institute of allInstitutes" [value]="institute.inst_name">
+            {{ institute.inst_name }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Sport Name</mat-label>
+        <mat-select formControlName="sport_name">
+          <mat-option *ngFor="let sport of allSports" [value]="sport.sport_name">
+            {{ sport.sport_name }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+    <input matInput type="number" formControlName="phone" placeholder="Phone Number">
+    <!-- <mat-error *ngIf="form.get('phone').invalid">Please enter Phone number of the Participant.</mat-error> -->
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Add Participant</button>
+</form>
+</mat-card>
+
+<!-- 
+<mat-select formControlName="name" matNativeControl required #resc (ngModelChange)="onChange($event, i)">
+        <mat-option *ngFor="let resource of resources" value="{{ resource.id }}">{{ resource.name }}</mat-option>
+    </mat-select>
+  </mat-form-field> -->

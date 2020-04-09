@@ -1,0 +1,15 @@
+<mat-card>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<form [formGroup]="form" (submit)="onAddVenue()" *ngIf="!isLoading">
+    <mat-form-field>
+    <input matInput type="text" formControlName="venue_name" placeholder="Venue Name">
+    <!-- <mat-error *ngIf="form.get('name').invalid">Please enter name of the Venue.</mat-error> -->
+    </mat-form-field>
+    
+    <mat-form-field>
+    <textarea matInput type="text" formControlName="address" placeholder="Address"></textarea>
+    <!-- <mat-error *ngIf="form.get('address').invalid">Please enter address of the Venue.</mat-error> -->
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Add Venue</button>
+</form>
+</mat-card>
